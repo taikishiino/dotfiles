@@ -1,7 +1,7 @@
-"                                                    
-"                         __   _(_)_ __ ___  _ __ ___ 
+"
+"                         __   _(_)_ __ ___  _ __ ___
 "                         \ \ / / | '_ ` _ \| '__/ __|
-"                          \ V /| | | | | | | | | (__ 
+"                          \ V /| | | | | | | | | (__
 "                        (_)\_/ |_|_| |_| |_|_|  \___|
 "
 "
@@ -280,3 +280,10 @@ endif
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+
+" TypeScript
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+\ 'autoload' : {
+\   'filetypes' : ['javascript', 'typescript', 'html'],
+\}}
+let g:js_indent_typescript = 1

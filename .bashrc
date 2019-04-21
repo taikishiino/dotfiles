@@ -1,5 +1,5 @@
 export PATH=$PATH:/Users/xxxxx/.nodebrew/current/bin
-
+source /usr/local/etc/bash_completion.d/git-completion.bash
 
 function parse_git_branch {
    git branch --no-color 2> /dev/null | sed -e '/^[^＊]/d' -e 's/＊ \(.*\)/(\1)/'
