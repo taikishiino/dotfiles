@@ -18,7 +18,9 @@ $ cd ~/
 $ git clone https://github.com/taikishiino/dotfiles.git
 $ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 $ ln -sf ~/dotfiles/.zshrc ~/.zshrc
+$ ln -sf ~/dotfiles/.zprofile ~/.zprofile
 
 # zshrc の内容を読み込む
 source ~/.zshrc
+source ~/.zprofile
 ```
