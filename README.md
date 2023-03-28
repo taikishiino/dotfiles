@@ -1,6 +1,6 @@
-### taikishiino dotfiles
+# dotfiles
 
-- bashの場合
+## bash
 ```bash
 $ cd ~/
 $ git clone https://github.com/taikishiino/dotfiles.git
@@ -8,11 +8,10 @@ $ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 $ ln -sf ~/dotfiles/.bashrc ~/.bashrc
 $ ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 
-# bash_profileの内容を読み込む
-source ~/.bash_profile
+$ source ~/.bash_profile
 ```
 
-- zshの場合
+## zsh
 ```bash
 $ cd ~/
 $ git clone https://github.com/taikishiino/dotfiles.git
@@ -20,7 +19,6 @@ $ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 $ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 $ ln -sf ~/dotfiles/.zprofile ~/.zprofile
 
-# zshrc の内容を読み込む
-source ~/.zshrc
-source ~/.zprofile
+$ source ~/.zshrc
+$ source ~/.zprofile
 ```

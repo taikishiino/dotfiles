@@ -7,9 +7,6 @@ ZSH_THEME="candy"
 # oh my zsh で利用するプラグインを指定
 plugins=(git zsh-syntax-highlighting zsh-completions)
 
-# oh-my-zsh に変更を適用
-source $ZSH/oh-my-zsh.sh
-
 ##### zsh の設定 #####
 
 # プロンプト表示設定
@@ -52,11 +49,12 @@ autoload -U compinit && compinit -u
 git config --global color.ui auto
 
 
-# Alias: Docker 系
+# Alias
+alias relogin='exec $SHELL -l'
+# Docker 系
 alias d='docker'
 alias dc='docker-compose'
-
-# Alias: git 系
+# git 系
 alias g='git'
 alias gs='git status'
 alias gb='git branch'
@@ -144,3 +142,66 @@ setopt extended_glob
 # ここではデフォルトのセットから / を抜いたものにしている
 # ※ たとえば Ctrl-W でカーソル前の1単語を削除したとき / までで削除が止まる
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+# Git
+function gitWork() {
+  git config --global user.name "taikishiino-oct"
+  git config --global user.email taiki.shiino@88oct.co.jp
+  git config --list
+}
+
+function gitMy() {
+  git config --global user.name "taikishiino"
+  git config --global user.email taiki.shiino@gmail.com
+  git config --list
+}
+
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+# goenv
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
+
+eval "$(direnv hook zsh)"
+
+export GOPATH=$HOME/go
+PATH=$PATH:$GOPATH/bin
+
+# anyenv
+# eval "$(anyenv init -)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/taiki.shiino/.nodenv/versions/12.19.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/taiki.shiino/.nodenv/versions/12.19.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/taiki.shiino/.nodenv/versions/12.19.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/taiki.shiino/.nodenv/versions/12.19.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zshexport PATH="/usr/local/sbin:$PATH"
+
+# Flutter
+export PATH=$PATH:/Users/furusin/Library/Android/sdk/platform-tools
+
+export PATH="/usr/local/sbin:$PATH"
+
+test -e /Users/taiki.shiino/.iterm2_shell_integration.zsh && source /Users/taiki.shiino/.iterm2_shell_integration.zsh || true
+
+# gatsby
+export DYLD_LIBRARY_PATH=/usr/lib/:$DYLD_LIBRARY_PATH
+
+# zsh: no matches found ~対策
+setopt nonomatch
+
+# Flutter
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/fvm/default/bin"
+export PATH="$PATH:$HOME/flutter/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/taiki.shiino/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taiki.shiino/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/taiki.shiino/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taiki.shiino/google-cloud-sdk/completion.zsh.inc'; fi
