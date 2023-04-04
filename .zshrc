@@ -156,9 +156,23 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="$PATH:$HOME/flutter/bin"
 
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
-
-# fastdoctor MacBook Pro
-export PATH=/opt/homebrew/bin:$PATH
+# M2 MacでARMとIntelのターミナルを切り替えて使う
+# https://qiita.com/funatsufumiya/items/cec08f1ba3387edc2eed
+alias change_profile='(){echo -e "\033]1337;SetProfile=$1\a"}'
+ARCH=$(uname -m)
+echo "Current Architecture: $ARCH"
+if [[ $ARCH == arm64 ]]; then
+  change_profile ARM
+  eval $(/opt/homebrew/bin/brew shellenv)
+  export PATH="/opt/homebrew/bin:$PATH"
+  export ANYENV_ROOT="$HOME/.anyenv_arm64"
+  export PATH="$HOME/.anyenv_arm64/bin:$PATH"
+  eval "$(anyenv init -)"
+else
+  # x86_64
+  change_profile Intel
+  eval $(/usr/local/bin/brew shellenv)
+  export ANYENV_ROOT="$HOME/.anyenv_x64"
+  export PATH="$HOME/.anyenv_x64/bin:$PATH"
+  eval "$(anyenv init -)"
+fi
