@@ -163,4 +163,5 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="$PATH:$HOME/flutter/bin"
 
-
+# MySQL
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
