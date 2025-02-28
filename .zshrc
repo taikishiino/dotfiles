@@ -37,23 +37,12 @@ TRAPALRM() {
 autoload -U compinit && compinit -u
 
 # Alias
-alias relogin='exec $SHELL -l'
-alias d='docker'
-alias dc='docker-compose'
-alias g='git'
-alias gs='git status'
+alias reload='exec $SHELL -l'
+alias dc='docker compose'
 alias gb='git branch'
-alias gc='git checkout'
-alias gct='git commit'
-alias ga='git add'
-alias gd='git diff'
-alias gl='git log'
-alias gcma='git checkout master'
-alias gmod='git merge origin/develop'
-alias gmom='git merge origin/master'
-alias gcm='git commit -m'
-alias gpom='git push origin master'
-alias gst='git stash'
+alias gs='git switch'
+alias gc='git commit'
+alias gf='git fetch'
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -131,12 +120,6 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 # zsh: no matches found ~対策
 setopt nonomatch
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/taiki.shiino/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taiki.shiino/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/taiki.shiino/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taiki.shiino/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Git
 function gitmain() {
   git config --global user.name "taikishiino"
@@ -149,6 +132,12 @@ function gitcsc() {
   git config --global user.email "t.shiino@cscloud.co.jp"
   git config --list
 }
+
+# Nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# anyenv
+eval "$(anyenv init -)"
 
 # Go
 export GOPATH=$HOME/go
@@ -165,3 +154,17 @@ export PATH="$PATH:$HOME/flutter/bin"
 
 # MySQL
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/csc-r011/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/csc-r011/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/csc-r011/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/csc-r011/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/csc-r011/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
