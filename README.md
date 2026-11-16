@@ -4,8 +4,6 @@ taikishiino の macOS 開発環境（zsh · sheldon · starship · atuin · fzf 
 
 ## Install
 
-前提：macOS（Apple Silicon）と [Homebrew](https://brew.sh/)
-
 ```bash
 git clone https://github.com/taikishiino/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
