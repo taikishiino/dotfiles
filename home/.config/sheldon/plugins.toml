@@ -1,0 +1,9 @@
+shell = "zsh"
+
+# 入力中に履歴からコマンドを薄く補完（→ キーで確定）
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+# コマンドのシンタックスハイライト
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"

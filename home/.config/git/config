@@ -1,0 +1,5 @@
+# user.name / email は ~/.gitconfig に置く（gitmain / gitxaiondata で切り替え）
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
