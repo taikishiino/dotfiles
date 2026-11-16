@@ -127,17 +127,14 @@ function gitmain() {
   git config --list
 }
 
-function gitcsc() {
-  git config --global user.name "taikishiino-csc"
-  git config --global user.email "t.shiino@cscloud.co.jp"
+function gitxaiondata() {
+  git config --global user.name "taikishiino-xaiondata"
+  git config --global user.email "taiki.shiino@xaiondata.co.jp"
   git config --list
 }
 
 # Nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# anyenv
-eval "$(anyenv init -)"
 
 # Go
 export GOPATH=$HOME/go
